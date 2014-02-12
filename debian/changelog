@@ -1,3 +1,92 @@
+xserver-xorg-input-evdev (1:2.7.0-1) unstable; urgency=low
+
+  [ Timo Aaltonen ]
+  * Remove obsolete .manpages.
+
+  [ Cyril Brulebois ]
+  * New upstream release.
+  * Actually merge upstream master up to 99340147b9 (one extra commit) to
+    avoid inverted horizontal scroll.
+  * Don't merge from debian-experimental to avoid picking up XI2.2 fun:
+    too many bugs still need fixes so let's keep that for another day.
+    That would require a newer input proto package, along with a newer
+    server, anyway.
+  * Bump xserver-xorg-dev build-dep to 2:1.10, now required.
+  * Add libudev-dev build-dep.
+
+ -- Cyril Brulebois <kibi@debian.org>  Tue, 20 Mar 2012 00:40:39 +0000
+
+xserver-xorg-input-evdev (1:2.6.0-2) unstable; urgency=low
+
+  * Get rid of “[linux-any]” for the dependency on udev-udeb, evdev is
+    Linux-only.
+  * Replace non-breaking spaces with regular spaces in udeb's long
+    description.
+  * Switch to dh:
+    - Bump debhelper build-dep, add dh-autoreconf build-dep.
+    - Bump compat to 8.
+    - Rewrite debian/rules.
+    - Pass --fail-missing to dh_install.
+    - Stop passing --disable-static to configure, that's the default.
+  * Bump xserver-xorg-dev build-dep for dh_xsf_substvars and xsf sequence.
+  * Remove xsfbs accordingly.
+  * Replace ${xserver:Depends} with ${xinpdriver:Depends} in the udeb.
+  * Remove long obsolete Replaces.
+  * Update Uploaders list. Thanks, David & Brice!
+  * Remove build-deps:
+    - dpkg-dev is recent enough on stable and higher.
+    - automake and libtool are pulled through dh-autoreconf.
+  * Bump Standards-Version to 3.9.1 (no changes needed).
+  * Wrap Depends/Provides.
+
+ -- Cyril Brulebois <kibi@debian.org>  Sat, 05 Feb 2011 14:38:02 +0100
+
+xserver-xorg-input-evdev (1:2.6.0-1) experimental; urgency=low
+
+  * New upstream release.
+
+ -- Cyril Brulebois <kibi@debian.org>  Tue, 11 Jan 2011 15:40:01 +0100
+
+xserver-xorg-input-evdev (1:2.5.99.903-1) experimental; urgency=low
+
+  * New upstream release candidate.
+
+ -- Cyril Brulebois <kibi@debian.org>  Wed, 05 Jan 2011 01:33:36 +0100
+
+xserver-xorg-input-evdev (1:2.5.99.901-2) experimental; urgency=low
+
+  * Switch Architecture for all binary packages from any to linux-any
+    since this driver is Linux-only.
+  * Cherry-pick bed25600 from upstream to fix crashes in
+    GetProximityEvents (Closes: #605374).
+
+ -- Cyril Brulebois <kibi@debian.org>  Tue, 04 Jan 2011 16:06:52 +0100
+
+xserver-xorg-input-evdev (1:2.5.99.901-1) experimental; urgency=low
+
+  * New upstream release.
+
+ -- Cyril Brulebois <kibi@debian.org>  Mon, 22 Nov 2010 15:50:51 +0100
+
+xserver-xorg-input-evdev (1:2.5.0-1) experimental; urgency=low
+
+  [ Robert Hooker ]
+  * New upstream release.
+  * Bump xutils-dev build dep for new util-macros.
+
+  [ Cyril Brulebois ]
+  * New upstream release fixes some bugs:
+     - Forward keycodes > 255 (Closes: #500096).
+     - No longer list README.mouse (Closes: #590529).
+
+ -- Cyril Brulebois <kibi@debian.org>  Thu, 21 Oct 2010 19:49:10 +0200
+
+xserver-xorg-input-evdev (1:2.3.2-7) experimental; urgency=low
+
+  * Build against Xserver 1.9.1 rc1.
+
+ -- Cyril Brulebois <kibi@debian.org>  Tue, 12 Oct 2010 23:52:24 +0200
+
 xserver-xorg-input-evdev (1:2.3.2-6) unstable; urgency=low
 
   [ Julien Cristau ]
