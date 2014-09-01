@@ -1,3 +1,37 @@
+xserver-xorg-input-evdev (1:2.8.2-1) unstable; urgency=low
+
+  [ Michele Cane ]
+  * New upstream release.
+
+ -- Julien Cristau <jcristau@debian.org>  Mon, 21 Oct 2013 21:07:27 +0200
+
+xserver-xorg-input-evdev (1:2.8.1-1) unstable; urgency=low
+
+  [ Maarten Lankhorst ]
+  * New upstream release.
+
+  [ Michele Cane ]
+  * New upstream release.
+  * Bump Standards-Version to 3.9.4, no changes needed.
+
+  [ Julien Cristau ]
+  * Disable silent build rules.
+
+ -- Julien Cristau <jcristau@debian.org>  Thu, 05 Sep 2013 20:03:34 +0200
+
+xserver-xorg-input-evdev (1:2.7.1-1) experimental; urgency=low
+
+  [ Maarten Lankhorst ]
+  * Merge the 1:2.7.0-1 sid upload
+    + Remove upstreamed 0001-configure.ac-Fix-udev-libudev-dependency.patch
+  * Add -dbg package for symbols
+
+  [ Julien Cristau ]
+  * New upstream bugfix release, with multitouch enabled (closes: #683723).
+  * Pull from upstream evdev-2.7-branch, commit 7469081.
+
+ -- Julien Cristau <jcristau@debian.org>  Fri, 03 Aug 2012 12:32:30 +0200
+
 xserver-xorg-input-evdev (1:2.7.0-1) unstable; urgency=low
 
   [ Timo Aaltonen ]
@@ -15,6 +49,21 @@ xserver-xorg-input-evdev (1:2.7.0-1) unstable; urgency=low
   * Add libudev-dev build-dep.
 
  -- Cyril Brulebois <kibi@debian.org>  Tue, 20 Mar 2012 00:40:39 +0000
+
+xserver-xorg-input-evdev (1:2.6.99.901-1) experimental; urgency=low
+
+  [ Timo Aaltonen ]
+  * Remove obsolete .manpages.
+
+  [ Cyril Brulebois ]
+  * New upstream release candidate, with multitouch support.
+  * Update build dependencies:
+    - Add libudev-dev and libmtdev-dev.
+    - Bump xserver-xorg-dev and x11proto-input-dev.
+  * Add patch to fix udev/libudev detection:
+    - 0001-configure.ac-Fix-udev-libudev-dependency.patch
+
+ -- Cyril Brulebois <kibi@debian.org>  Sat, 31 Dec 2011 19:55:39 +0100
 
 xserver-xorg-input-evdev (1:2.6.0-2) unstable; urgency=low
 
