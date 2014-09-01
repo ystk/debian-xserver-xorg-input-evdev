@@ -51,7 +51,6 @@ static Atom prop_wheel_timeout  = 0;
 static Atom prop_wheel_button   = 0;
 
 /* Local Funciton Prototypes */
-static BOOL EvdevWheelEmuHandleButtonMap(InputInfoPtr pInfo, WheelAxisPtr pAxis, char *axis_name);
 static int EvdevWheelEmuInertia(InputInfoPtr pInfo, WheelAxisPtr axis, int value);
 
 /* Filter mouse button events */
@@ -118,7 +117,7 @@ EvdevWheelEmuFilterMotion(InputInfoPtr pInfo, struct input_event *pEv)
 
 	/* We don't want to intercept real mouse wheel events */
 	if(pEv->type == EV_ABS) {
-	    int axis = pEvdev->axis_map[pEv->code];
+	    int axis = pEvdev->abs_axis_map[pEv->code];
 	    oldValue = valuator_mask_get(pEvdev->vals, axis);
 	    valuator_mask_set(pEvdev->vals, axis, value);
 	    value -= oldValue; /* make value into a differential measurement */
@@ -197,7 +196,8 @@ EvdevWheelEmuInertia(InputInfoPtr pInfo, WheelAxisPtr axis, int value)
 /* Handle button mapping here to avoid code duplication,
 returns true if a button mapping was found. */
 static BOOL
-EvdevWheelEmuHandleButtonMap(InputInfoPtr pInfo, WheelAxisPtr pAxis, char* axis_name)
+EvdevWheelEmuHandleButtonMap(InputInfoPtr pInfo, WheelAxisPtr pAxis,
+                             const char *axis_name)
 {
     EvdevPtr pEvdev = (EvdevPtr)pInfo->private;
     char *option_string;
@@ -392,7 +392,7 @@ EvdevWheelEmuSetProperty(DeviceIntPtr dev, Atom atom, XIPropertyValuePtr val,
 
         inertia = *((CARD16*)val->data);
 
-        if (inertia < 0)
+        if (inertia <= 0)
             return BadValue;
 
         if (!checkonly)
