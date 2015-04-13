@@ -1,7 +1,8 @@
 #!/usr/bin/make -f
 
 override_dh_auto_configure:
-	dh_auto_configure -- --disable-silent-rules
+	dh_auto_configure -- --disable-silent-rules \
+            $(shell dpkg-buildflags --export=configure)
 
 # Install in debian/tmp to retain control through dh_install:
 override_dh_auto_install:

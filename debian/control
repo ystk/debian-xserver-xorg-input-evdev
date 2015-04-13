@@ -2,13 +2,13 @@ Source: xserver-xorg-input-evdev
 Section: x11
 Priority: optional
 Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
-Uploaders: Drew Parsons <dparsons@debian.org>, Cyril Brulebois <kibi@debian.org>
+Uploaders: Drew Parsons <dparsons@debian.org>,
 Build-Depends:
  debhelper (>= 8),
  dh-autoreconf,
  pkg-config,
  quilt,
- xserver-xorg-dev (>= 2:1.11.99.901),
+ xserver-xorg-dev (>= 2:1.15.99),
  x11proto-core-dev,
  x11proto-randr-dev,
  x11proto-input-dev (>= 2.1.99.3),
@@ -17,9 +17,10 @@ Build-Depends:
  xutils-dev (>= 1:7.5+4),
  libudev-dev,
  libmtdev-dev,
-Standards-Version: 3.9.4
-Vcs-Git: git://git.debian.org/git/pkg-xorg/driver/xserver-xorg-input-evdev
-Vcs-Browser: http://git.debian.org/?p=pkg-xorg/driver/xserver-xorg-input-evdev.git
+ libevdev-dev (>= 1.2.2+dfsg-1~),
+Standards-Version: 3.9.5
+Vcs-Git: git://anonscm.debian.org/pkg-xorg/driver/xserver-xorg-input-evdev.git
+Vcs-Browser: http://anonscm.debian.org/gitweb/?p=pkg-xorg/driver/xserver-xorg-input-evdev.git
 
 Package: xserver-xorg-input-evdev
 Architecture: linux-any
@@ -76,7 +77,7 @@ Depends:
  xserver-xorg-input-evdev (= ${binary:Version}),
 Section: debug
 Priority: extra
-Description: X.Org X server -- evdev input driver (development headers)
+Description: X.Org X server -- evdev input driver (debug symbols)
  This package provides the development headers for the evdev input driver
  found in xserver-xorg-input-evdev. Non-developers likely have little use
  for this package.
